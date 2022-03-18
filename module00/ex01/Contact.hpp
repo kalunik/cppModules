@@ -10,6 +10,9 @@ class contactClass
 {
 public:
 
+private:
+	std::string key[5];
+	std::string val[5];
 };
 
 
