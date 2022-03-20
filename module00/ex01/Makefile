@@ -1,13 +1,13 @@
 CC		=	c++
 RM		=	rm -f
-CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
+CFLAGS	=	-I. -std=c++98 -Wall -Wextra -Werror
 NAME	=	PhoneBook
-SRCS	=	Contact.cpp PhoneBook.cpp
+SRCS	=	main.cpp Contact.cpp PhoneBook.cpp
 
-OBJS	=	$(patsubst %.c, %.o, $(SRCS))
+OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))
 
 all:
-			$(MAKE) $(NAME)
+			@$(MAKE) $(NAME)
 
 $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
