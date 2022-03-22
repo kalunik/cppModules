@@ -3,6 +3,7 @@
 //
 
 #include "Contact.hpp"
+#include <iomanip>
 
 Contact::Contact() {
 	key[0] = "FirstName";
@@ -35,12 +36,13 @@ void	Contact::getContactValFixedWide(int i)
 
 	len = this->val[i].size();
 	if (len > 10)
-		this->val[i].resize(10);
-	else if (len < 10){
-		for (int j = 0; j < 10 - len; j++) {
-			std::cout << " ";
-		}
+	{
+		for (int j = 0; j < 9; j++)
+			std::cout << this->val[i][j];
+		std::cout << ".";
 	}
-	std::cout << this->val[i];
+	else if (len <= 10){
+		std::cout << std::setw(10) << this->val[i];
+	}
 }
 

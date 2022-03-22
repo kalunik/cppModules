@@ -19,6 +19,7 @@ public:
 private:
 	int			id;
 	int			searchID;
+	bool		storageFull;
 	Contact		contacts[8];
 };
 

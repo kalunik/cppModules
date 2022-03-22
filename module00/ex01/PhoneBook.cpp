@@ -3,7 +3,7 @@
 //
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook () : id(-1){};
+PhoneBook::PhoneBook () : id(-1), storageFull(false){};
 
 void	PhoneBook::addContact()
 {
@@ -12,6 +12,7 @@ void	PhoneBook::addContact()
 		contacts[id].setContact();
 	else {
 		id = 0;
+		storageFull = true;
 		contacts[id].setContact();
 	}
 }
@@ -24,8 +25,14 @@ void	PhoneBook::printHeader()
 
 void	PhoneBook::printContacts()
 {
+	int	end;
+
 	printHeader();
-	for (int j = 0 ; j <= id; j++)
+	if (storageFull)
+		end = 7;
+	else
+		end = id;
+	for (int j = 0 ; j <= end; j++)
 	{
 		std::cout << "         " << j << "|";
 		for (int i = 0; i < 3; i++)
@@ -43,7 +50,8 @@ void	PhoneBook::printID()
 	std::cout << "Enter existing index" << std::endl, std::cin >> searchID;
 	if (std::cin.eof())
 		exit(EXIT_SUCCESS);
-	if (std::cin.fail() || searchID < 0 || searchID > id) {
+	if (std::cin.fail() || searchID < 0 || (!storageFull && searchID > id) ||
+		(storageFull && searchID > 7)) {
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cout << "Index doesn't exist" << std::endl;
