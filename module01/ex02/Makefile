@@ -1,8 +1,8 @@
 CC		=	c++
 RM		=	rm -f
 CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
-NAME	=	megaphone
-SRCS	=	megaphone.cpp
+NAME	=	brain
+SRCS	=	main.cpp
 
 OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))
 
@@ -11,7 +11,7 @@ all:
 
 $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
-			@echo "megaphone is ready to use ✅ "
+			@echo "brain is ready to use ✅ "
 
 %.o: %.c	Makefile
 			@$(CC) $(CFLAGS) -c $< -o $@
