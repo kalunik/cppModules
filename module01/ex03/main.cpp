@@ -53,7 +53,8 @@ private:
 HumanB::HumanB(std::string fName) : name(fName){}
 
 void HumanB::attack(){
-	std::cout << this->name << " attacks with their " << gunB->getType() << std::endl;
+	if (this->gunB)
+		std::cout << this->name << " attacks with their " << this->gunB->getType() << std::endl;
 }
 
 void HumanB::setWeapon(Weapon &gun){
