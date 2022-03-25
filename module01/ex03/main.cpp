@@ -7,17 +7,17 @@
 class	Weapon{
 public:
 	Weapon(std::string base);
-	const std::string	getType();
-	void				setType(std::string mes);
+	std::string&	getType();
+	void				setType
+	(std::string mes);
 private:
 	std::string	type;
 };
 
 Weapon::Weapon(std::string base) : type(base){};
 
-const std::string Weapon::getType(){
-	std::string	&typeRef = this->type;
-	return (typeRef);
+std::string& Weapon::getType() {
+	return (this->type);
 }
 
 void Weapon::setType(std::string mes){
@@ -26,14 +26,14 @@ void Weapon::setType(std::string mes){
 
 class	HumanA{
 public:
-	HumanA(std::string fName, Weapon gun);
+	HumanA(std::string fName, Weapon &gun);
 	void	attack();
 private:
 	std::string	name;
-	Weapon		gunA;
+	Weapon&		gunA;
 };
 
-HumanA::HumanA(std::string fName, Weapon gun) : name(fName), gunA(gun){};
+HumanA::HumanA(std::string fName, Weapon &gun) : name(fName), gunA(gun){};
 
 void HumanA::attack(){
 	std::cout << this->name << " attacks with their " << this->gunA.getType()
@@ -44,21 +44,20 @@ class	HumanB{
 public:
 	HumanB(std::string fName);
 	void	attack();
-	void	setWeapon(Weapon gun);
+	void	setWeapon(Weapon &gun);
 private:
 	std::string	name;
-	Weapon		gunB;
+	Weapon*	gunB;
 };
 
-HumanB::HumanB(std::string fName) : name(fName), gunB("no weapon"){}
+HumanB::HumanB(std::string fName) : name(fName){}
 
 void HumanB::attack(){
-	std::cout << this->name << " attacks with their " << this->gunB.getType()
-			  << std::endl;
+	std::cout << this->name << " attacks with their " << gunB->getType() << std::endl;
 }
 
-void HumanB::setWeapon(Weapon gun){
-	this->gunB = gun;
+void HumanB::setWeapon(Weapon &gun){
+	this->gunB = &gun;
 }
 
 int	main(){
