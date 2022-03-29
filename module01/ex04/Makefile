@@ -11,7 +11,7 @@ all:
 
 $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
-			@echo "weapon is ready to use ✅ "
+			@echo "sed is ready to use ✅ "
 
 %.o: %.c	Makefile
 			@$(CC) $(CFLAGS) -c $< -o $@
