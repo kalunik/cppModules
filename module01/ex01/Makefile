@@ -2,7 +2,9 @@ CC		=	c++
 RM		=	rm -f
 CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 NAME	=	horde
-SRCS	=	main.cpp
+SRCS	=	main.cpp\
+			zobieHorde.cpp\
+			Zombie.cpp
 
 OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))
 

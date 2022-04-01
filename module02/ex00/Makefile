@@ -1,11 +1,8 @@
 CC		=	c++
 RM		=	rm -f
 CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
-NAME	=	brainz
-SRCS	=	main.cpp\
-			newZombie.cpp\
-			Zombie.cpp\
-			randomChump.cpp
+NAME	=	fixed
+SRCS	=	main.cpp
 
 OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))
 
@@ -14,7 +11,7 @@ all:
 
 $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
-			@echo "brainz is ready to use ✅ "
+			@echo "fixed is ready to use ✅ "
 
 %.o: %.c	Makefile
 			@$(CC) $(CFLAGS) -c $< -o $@

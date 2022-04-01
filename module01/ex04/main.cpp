@@ -5,7 +5,7 @@
 #include <iostream>
 #include <fstream>
 
-int	main(int ac, char **av){
+int	main(int ac, char **av) {
 	if (ac != 4){
 		std::cout << "Need more arguments (give 3 args)" << std::endl;
 		return (EXIT_FAILURE);

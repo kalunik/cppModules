@@ -2,7 +2,13 @@ CC		=	c++
 RM		=	rm -f
 CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 NAME	=	weapon
-SRCS	=	main.cpp
+SRCS	=	main.cpp\
+			HumanB.hpp\
+			HumanA.cpp\
+			HumanA.hpp\
+			HumanB.cpp\
+			Weapon.cpp\
+			Weapon.hpp
 
 OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))
 
