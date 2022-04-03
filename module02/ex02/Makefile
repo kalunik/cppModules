@@ -1,7 +1,7 @@
 CC		=	c++
 RM		=	rm -f
 CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
-NAME	=	brain
+NAME	=	fixed_2
 SRCS	=	main.cpp
 
 OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))
@@ -11,7 +11,7 @@ all:
 
 $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
-			@echo "brain is ready to use ✅ "
+			@echo "fixed_2 is ready to use ✅ "
 
 %.o: %.c	Makefile
 			@$(CC) $(CFLAGS) -c $< -o $@
