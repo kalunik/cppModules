@@ -1,9 +1,11 @@
 CC		=	c++
 RM		=	rm -f
 CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
-NAME	=	clap
+NAME	=	frag
 SRCS	=	main.cpp\
 			ClapTrap.cpp\
+			ScavTrap.cpp\
+			FragTrap.cpp
 
 OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))
 
@@ -12,7 +14,7 @@ all:
 
 $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
-			@echo "clap is ready to use ✅ "
+			@echo "frag is ready to use ✅ "
 
 %.o: %.c	Makefile
 			@$(CC) $(CFLAGS) -c $< -o $@

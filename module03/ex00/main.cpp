@@ -5,8 +5,12 @@
 #include "ClapTrap.hpp"
 
 int main() {
-	ClapTrap	peer;
-	ClapTrap	another_peer;
+	ClapTrap	objA("Clark");
+	ClapTrap	objB("John");
+
+	objA.attack("John");
+	objB.takeDamage(0);
+	objB.beRepaired(10);
 
 	return (0);
 }

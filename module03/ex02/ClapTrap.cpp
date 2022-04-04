@@ -4,7 +4,7 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string objName) : name(objName), HP(10), energy(10),
+ClapTrap::ClapTrap(std::string name) : name(name), HP(10), energy(10),
 		damage(0) {
 	std::cout << "Clap constructor called" << std::endl;
 }
@@ -47,4 +47,49 @@ void ClapTrap::beRepaired(unsigned int amount) {
 		this->HP += amount;
 		this->energy--;
 	}
+}
+
+///get
+
+std::string ClapTrap::getName() const {
+	return (this->name);
+}
+
+unsigned int ClapTrap::getHP() const {
+	return (this->HP);
+}
+
+unsigned int ClapTrap::getDamage() const {
+	return (this->damage);
+}
+
+unsigned int ClapTrap::getEnergy() const {
+	return (this->energy);
+}
+
+///set
+
+void ClapTrap::setName(std::string name) {
+	this->name = name;
+}
+
+void ClapTrap::setHP(unsigned int amount) {
+	this->HP = amount;
+}
+
+void ClapTrap::setDamage(unsigned int amount) {
+	this->damage = amount;
+}
+
+void ClapTrap::setEnergy(unsigned int amount) {
+	this->energy = amount;
+}
+
+void ClapTrap::displayInfo() {
+	std::cout << "–––––––" << std::endl;
+	std::cout <<"name   | " << getName() << std::endl;
+	std::cout <<"HP     | " << getHP() << std::endl;
+	std::cout <<"damage | " << getDamage() << std::endl;
+	std::cout <<"energy | " << getEnergy() << std::endl;
+	std::cout << "–––––––" << std::endl;
 }

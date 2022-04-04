@@ -16,6 +16,18 @@ public:
 	void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
+	///get
+	std::string		getName() const;
+	unsigned int	getHP() const;
+	unsigned int	getDamage() const;
+	unsigned int	getEnergy() const;
+	///set
+	void	setName(std::string name);
+	void	setHP(unsigned int amount);
+	void	setDamage(unsigned int amount);
+	void	setEnergy(unsigned int amount);
+	///info
+	void	displayInfo();
 private:
 	std::string		name;
 	unsigned int	HP;
