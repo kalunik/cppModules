@@ -8,8 +8,8 @@ Animal::Animal() {
 	std::cout << "Animal constructor" << std::endl;
 }
 
-Animal::Animal(const Animal &obj) : type(obj.type) {
-//	*this = obj;
+Animal::Animal(const Animal &obj) {
+	*this = obj;
 	std::cout << "Animal copy constructor" << std::endl;
 }
 

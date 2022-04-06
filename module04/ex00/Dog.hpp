@@ -12,7 +12,9 @@ public:
 	Dog();
 	Dog(const Dog &obj);
 	virtual ~Dog();
+
 	Dog& operator=(const Dog &obj);
+
 	virtual void makeSound() const;
 };
 

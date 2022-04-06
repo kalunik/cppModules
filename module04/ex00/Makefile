@@ -1,8 +1,9 @@
-0CC		=	c++
+CC		=	c++
 RM		=	rm -f
-CFLAGS	=	-std=c++98 -Wall -Wextra -Werror -g
+CFLAGS	=	-std=c++98 #-Wall -Wextra -Werror
 NAME	=	animal
 SRCS	=	main.cpp\
+			Animal.cpp\
 			Dog.cpp
 
 OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))

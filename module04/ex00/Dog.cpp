@@ -6,7 +6,7 @@
 
 Dog::Dog() {
 	std::cout << "Dog constructor" << std::endl;
-	this->setType("dog");
+	this->type = "dog";
 }
 
 Dog::Dog(const Dog &obj) {
@@ -15,6 +15,11 @@ Dog::Dog(const Dog &obj) {
 }
 
 Dog::~Dog() {}
+
+Dog &Dog::operator=(const Dog &obj) {
+	setType(obj.getType());
+	return (*this);
+}
 
 void Dog::makeSound() const {
 	std::cout << "BARK" << std::endl;
