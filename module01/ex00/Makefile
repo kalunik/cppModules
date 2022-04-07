@@ -16,7 +16,7 @@ $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
 			@echo "brainz is ready to use ✅ "
 
-%.o: %.c	Makefile
+%.o:		%.cpp Makefile
 			@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

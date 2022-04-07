@@ -1,10 +1,13 @@
 CC		=	c++
 RM		=	rm -f
-CFLAGS	=	-std=c++98 #-Wall -Wextra -Werror
+CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 NAME	=	animal
 SRCS	=	main.cpp\
 			Animal.cpp\
-			Dog.cpp
+			Cat.cpp\
+			Dog.cpp\
+			WrongAnimal.cpp\
+			WrongCat.cpp
 
 OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))
 

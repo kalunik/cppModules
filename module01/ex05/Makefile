@@ -1,8 +1,9 @@
 CC		=	c++
 RM		=	rm -f
 CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
-NAME	=	sed
-SRCS	=	main.cpp
+NAME	=	harl
+SRCS	=	main.cpp\
+			Harl.cpp
 
 OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))
 
@@ -11,7 +12,7 @@ all:
 
 $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
-			@echo "sed is ready to use ✅ "
+			@echo "harl is ready to use ✅ "
 
 %.o:		%.cpp Makefile
 			@$(CC) $(CFLAGS) -c $< -o $@
@@ -26,4 +27,7 @@ fclean: 	clean
 
 re:			fclean all
 
-.PHONY: all bonus clean fclean re
+run:		all
+			./$(NAME)
+
+.PHONY: all bonus clean fclean re run

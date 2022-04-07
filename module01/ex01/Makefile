@@ -15,7 +15,7 @@ $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
 			@echo "horde is ready to use ✅ "
 
-%.o: %.c	Makefile
+%.o: 		%.cpp Makefile
 			@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

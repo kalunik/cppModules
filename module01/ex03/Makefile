@@ -3,12 +3,9 @@ RM		=	rm -f
 CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 NAME	=	weapon
 SRCS	=	main.cpp\
-			HumanB.hpp\
 			HumanA.cpp\
-			HumanA.hpp\
 			HumanB.cpp\
-			Weapon.cpp\
-			Weapon.hpp
+			Weapon.cpp
 
 OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))
 
@@ -19,7 +16,7 @@ $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
 			@echo "weapon is ready to use ✅ "
 
-%.o: %.c	Makefile
+%.o:		%.cpp Makefile
 			@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

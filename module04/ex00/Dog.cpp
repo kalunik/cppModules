@@ -14,7 +14,9 @@ Dog::Dog(const Dog &obj) {
 	*this = obj;
 }
 
-Dog::~Dog() {}
+Dog::~Dog() {
+	std::cout << "Dog destructor" << std::endl;
+}
 
 Dog &Dog::operator=(const Dog &obj) {
 	setType(obj.getType());
@@ -22,5 +24,5 @@ Dog &Dog::operator=(const Dog &obj) {
 }
 
 void Dog::makeSound() const {
-	std::cout << "BARK" << std::endl;
+	std::cout << "<WOOF>" << std::endl;
 }

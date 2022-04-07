@@ -16,19 +16,13 @@ int	main(int ac, char **av) {
 
 	std::ifstream	ifs(filename);
 	if (!ifs.is_open()){
-		std::cerr << "Couldn't open to read" << filename << std::endl;
+		std::cerr << "Couldn't open to read " << filename << std::endl;
 		return (EXIT_FAILURE);
 	}
 
-	std::ofstream	ofs(filename + ".replace");
-	if (!ofs.is_open()){
-		ifs.close();
-		std::cerr << "Couldn't open to write " << filename + ".replace" << std::endl;
-		return (EXIT_FAILURE);
-	}
 
 	std::string		txt;
-	for (std::string buf; std::getline(ifs, buf);){
+	for (std::string buf; std::getline(ifs, buf);) {
 		txt += buf;
 		if (!ifs.eof())
 			txt += "\n";
@@ -45,6 +39,14 @@ int	main(int ac, char **av) {
 		}
 		else
 			break;
+	}
+
+	std::ofstream	ofs(filename + ".replace");
+
+	if (!ofs.is_open()){
+		ifs.close();
+		std::cerr << "Couldn't open to write " << filename + ".replace" << std::endl;
+		return (EXIT_FAILURE);
 	}
 
 	ofs << txt;

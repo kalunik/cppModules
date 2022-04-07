@@ -14,7 +14,7 @@ public:
 	void	setWeapon(Weapon &gun);
 private:
 	std::string	name;
-	Weapon*	gunB;
+	Weapon*		gunB;
 };
 
 #endif //CPP_MODULES_HUMANB_HPP
