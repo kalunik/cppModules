@@ -1,13 +1,14 @@
 CC		=	c++
 RM		=	rm -f
 CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
-NAME	=	animal
+NAME	=	brain
 SRCS	=	main.cpp\
 			Animal.cpp\
 			Cat.cpp\
 			Dog.cpp\
 			WrongAnimal.cpp\
-			WrongCat.cpp
+			WrongCat.cpp\
+			Brain.cpp
 
 OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))
 
@@ -16,7 +17,7 @@ all:
 
 $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
-			@echo "animal is ready to use ✅ "
+			@echo "$(NAME) is ready to use ✅ "
 
 %.o:		%.cpp Makefile
 			@$(CC) $(CFLAGS) -c $< -o $@

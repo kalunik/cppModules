@@ -2,7 +2,8 @@ CC		=	c++
 RM		=	rm -f
 CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 NAME	=	fixed
-SRCS	=	main.cpp
+SRCS	=	main.cpp\
+			Fixed.cpp
 
 OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))
 
@@ -11,9 +12,9 @@ all:
 
 $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
-			@echo "fixed is ready to use ✅ "
+			@echo "$(NAME) is ready to use ✅ "
 
-%.o: %.c	Makefile
+%.o:		%.cpp Makefile
 			@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

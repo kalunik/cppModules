@@ -2,7 +2,7 @@ CC		=	c++
 RM		=	rm -f
 CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 NAME	=	sed
-SRCS	=	main.cpp
+SRCS	=	main.c
 
 OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))
 
