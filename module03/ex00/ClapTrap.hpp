@@ -19,8 +19,8 @@ public:
 private:
 	std::string		name;
 	unsigned int	HP;
-	unsigned int	damage;
 	unsigned int	energy;
+	unsigned int	damage;
 };
 
 #endif //CPPMODULES_CLAPTRAP_HPP

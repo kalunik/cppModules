@@ -16,7 +16,7 @@ all:
 
 $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
-			@echo "animal is ready to use ✅ "
+			@echo "$(NAME) is ready to use ✅ "
 
 %.o:		%.cpp Makefile
 			@$(CC) $(CFLAGS) -c $< -o $@

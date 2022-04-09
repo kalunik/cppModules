@@ -12,9 +12,9 @@ all:
 
 $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
-			@echo "clap is ready to use ✅ "
+			@echo "$(NAME) is ready to use ✅ "
 
-%.o: %.c	Makefile
+%.o:		%.cpp Makefile
 			@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

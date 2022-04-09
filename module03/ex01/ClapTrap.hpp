@@ -19,20 +19,20 @@ public:
 	///get
 	std::string		getName() const;
 	unsigned int	getHP() const;
-	unsigned int	getDamage() const;
 	unsigned int	getEnergy() const;
+	unsigned int	getDamage() const;
 	///set
 	void	setName(std::string name);
 	void	setHP(unsigned int amount);
-	void	setDamage(unsigned int amount);
 	void	setEnergy(unsigned int amount);
+	void	setDamage(unsigned int amount);
 	///info
 	void	displayInfo();
 private:
 	std::string		name;
 	unsigned int	HP;
-	unsigned int	damage;
 	unsigned int	energy;
+	unsigned int	damage;
 };
 
 #endif //CPPMODULES_CLAPTRAP_HPP
