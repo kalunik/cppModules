@@ -11,7 +11,7 @@ Bureaucrat::Bureaucrat() {
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
 	std::cout << "Bureaucrat ng constructor" << std::endl;
 	if (this->_grade > 150)
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 	else if (this->_grade < 1)
 		throw GradeTooHighException();
 }

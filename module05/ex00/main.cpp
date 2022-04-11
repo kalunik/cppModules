@@ -17,5 +17,29 @@ int main() {
 			std::cout << exception.what() << std::endl;
 		}
 	}
+	std::cout << std::endl;
+	{
+		try {
+			Bureaucrat a("John", 150);
+			std::cout << a << std::endl;
+			a.decrementGrade();
+			std::cout << a << std::endl;
+		}
+		catch (std::exception &exception) {
+			std::cout << exception.what() << std::endl;
+		}
+	}
+	std::cout << std::endl;
+	{
+		try {
+			Bureaucrat a("John", 0);
+			std::cout << a << std::endl;
+			a.decrementGrade();
+			std::cout << a << std::endl;
+		}
+		catch (std::exception &exception) {
+			std::cout << exception.what() << std::endl;
+		}
+	}
 	return (0);
 }
