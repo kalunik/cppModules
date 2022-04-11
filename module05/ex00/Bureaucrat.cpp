@@ -10,6 +10,10 @@ Bureaucrat::Bureaucrat() {
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {
 	std::cout << "Bureaucrat ng constructor" << std::endl;
+	if (this->_grade > 150)
+		throw GradeTooHighException();
+	else if (this->_grade < 1)
+		throw GradeTooHighException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &obj) : _name(obj._name) {
@@ -22,15 +26,27 @@ Bureaucrat::~Bureaucrat() {}
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj) {
 	std::cout << "Bureaucrat assignment operator" << std::endl;
 	this->_grade = obj._grade;
+	if (this->_grade > 150)
+		throw GradeTooLowException();
+	else if (this->_grade < 1)
+		throw GradeTooHighException();
 	return (*this);
 }
 
-void Bureaucrat::incrementGrade(Bureaucrat &obj) {
-	obj._grade += 1;
+void Bureaucrat::incrementGrade() {
+	this->_grade -= 1;
+	if (this->_grade < 1) {
+		this->_grade += 1;
+		throw GradeTooHighException();
+	}
 }
 
-void Bureaucrat::decrementGrade(Bureaucrat &obj) {
-	obj._grade -= 1;
+void Bureaucrat::decrementGrade() {
+	this->_grade += 1;
+	if (this->_grade > 150) {
+		this->_grade -= 1;
+		throw GradeTooLowException();
+	}
 }
 
 std::string Bureaucrat::getName() const {
@@ -46,4 +62,24 @@ void Bureaucrat::displayInfo() const {
 	std::cout <<"name   | " << getName() << std::endl;
 	std::cout <<"HP     | " << getGrade() << std::endl;
 	std::cout << "–––––––" << std::endl;
+}
+
+void Bureaucrat::checkGrade() {
+	if (this->_grade > 150)
+		throw GradeTooHighException();
+	else if (this->_grade < 1)
+		throw GradeTooHighException();
+}
+
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
+	return ("Exception : Grade too high!");
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
+	return ("Exception : Grade too low!");
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj) {
+	out << obj.getName() << " , bureaucrat grade " << obj.getGrade();
+	return (out);
 }
