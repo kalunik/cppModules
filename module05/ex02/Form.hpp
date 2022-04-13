@@ -11,6 +11,7 @@ class Bureaucrat;
 
 class Form {
 public:
+	Form();
 	Form(std::string name, int requireGradeSign = 150,
 		 int requireGradeExec = 150);
 	Form(const Form &obj);
@@ -33,8 +34,9 @@ public:
 	public:
 		virtual const char * what() const throw();
 	};
+
+	virtual void	execute(Bureaucrat const &executor) = 0;
 private:
-	Form();
 	const std::string	_name;
 	bool				_signed;
 	const int			_requireGradeSign;

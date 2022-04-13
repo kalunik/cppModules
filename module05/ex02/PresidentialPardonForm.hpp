@@ -10,13 +10,19 @@
 class PresidentialPardonForm : public Form {
 public:
 	PresidentialPardonForm();
+	PresidentialPardonForm(std::string target);
 	PresidentialPardonForm(const PresidentialPardonForm &obj);
 	~PresidentialPardonForm();
 
 	PresidentialPardonForm &operator=(const PresidentialPardonForm &obj);
 
+	std::string	getTarget() const;
+	int			getSignGrade() const;
+	int			getExecGrade() const;
 private:
 	const std::string	_target;
+	static const int	_signGrade = 25;
+	static const int	_execGrade = 5;
 };
 
 

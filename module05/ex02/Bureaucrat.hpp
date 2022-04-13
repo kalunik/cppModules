@@ -27,6 +27,7 @@ public:
 	void	displayInfo() const;
 
 	void	signForm(Form &obj);
+	void	executeForm(Form const &form);
 private:
 	Bureaucrat();
 	void	checkGrade();

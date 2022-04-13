@@ -2,6 +2,7 @@
 // Created by Nikita Kaluzhskikh on 04.04.2022.
 //
 
+#include <unistd.h>
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"
@@ -9,32 +10,7 @@
 
 int main(void) {
 	{
-/*		std::cout << "Animal, Cat, Dog.." << std::endl;
-		{
-			const Animal *meta = new Animal();
-			const Animal *j = new Dog();
-			const Animal *i = new Cat();
-			std::cout << j->getType() << " " << std::endl;
-			std::cout << i->getType() << " " << std::endl;
-			i->makeSound(); //will output the cat sound!
-			j->makeSound();
-			meta->makeSound();
-			delete meta;
-			delete j;
-			delete i;
-		}
-		std::cout << "WrongAnimal, WrongCat.." << std::endl;
-		{
-		const WrongAnimal *t1 = new WrongAnimal();
-		const WrongAnimal *t2 = new WrongCat();
-		std::cout << t1->getType() << std::endl;
-		std::cout << t2->getType() << std::endl;
-		t1->makeSound();
-		t2->makeSound();
-		delete t1;
-		delete t2;
-		}*/
-/*		std::cout << "BRAIN BRAIN BRAIN.." << std::endl;
+		std::cout << "BRAIN BRAIN BRAIN.." << std::endl;
 		{
 			Animal *meta[SIZE];
 			int i = 0;
@@ -51,12 +27,14 @@ int main(void) {
 			   delete meta[i];
 			}
 		}
-	}*/
+	}
+	std::cout << std::endl;
 	{
-		Animal a;
+		Dog a;
 		{
 			Dog tmp = a;
 		}
+		std::cout << a.getType() << std::endl;
 	}
 	return 0;
 }
