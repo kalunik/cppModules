@@ -20,7 +20,7 @@ public:
 	virtual void makeSound() const;
 
 private:
-//	Brain *ptr;
+	Brain *ptr;
 };
 
 

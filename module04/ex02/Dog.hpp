@@ -21,8 +21,6 @@ public:
 //	void *getBrainAddress() const;
 private:
 	Brain *ptr;
-
-	Brain *getBrain() const;
 };
 
 

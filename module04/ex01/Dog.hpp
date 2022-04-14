@@ -17,12 +17,9 @@ public:
 	Dog& operator=(const Dog &obj);
 
 	virtual void makeSound() const;
-
-//	void *getBrainAddress() const;
 private:
 	Brain *ptr;
 
-	Brain *getBrain() const;
 };
 
 
