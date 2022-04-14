@@ -4,7 +4,10 @@ CFLAGS	=	-std=c++98 -Wall -Wextra -Werror
 NAME	=	grade
 SRCS	=	main.cpp\
 			Bureaucrat.cpp\
-			Form.cpp
+			Form.cpp \
+			ShrubberyCreationForm.cpp\
+			RobotomyRequestForm.cpp\
+			PresidentialPardonForm.cpp\
 
 OBJS	=	$(patsubst %.cpp, %.o, $(SRCS))
 

@@ -17,12 +17,10 @@ public:
 	RobotomyRequestForm &operator=(const RobotomyRequestForm &obj);
 
 	std::string	getTarget() const;
-	int			getSignGrade() const;
-	int			getExecGrade() const;
+
+	virtual void execute(const Bureaucrat &executor) const;
 private:
-	const std::string	_target;
-	static const int	_signGrade = 72;
-	static const int	_execGrade = 45;
+	std::string	_target;
 };
 
 

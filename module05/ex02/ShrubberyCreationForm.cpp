@@ -6,10 +6,11 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : _target(target){}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form
+("DefaultShrubberyForm", 145, 137), _target(target){}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) :
-		_target(obj._target) {
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm
+&obj) : Form(obj) {
 	*this = obj;
 }
 
@@ -17,6 +18,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 ShrubberyCreationForm &
 ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj) {
+	this->_target = obj._target;
 	return (*this);
 }
 
@@ -24,10 +26,39 @@ std::string ShrubberyCreationForm::getTarget() const {
 	return (this->_target);
 }
 
-int ShrubberyCreationForm::getSignGrade() const {
-	return (this->_signGrade);
-}
+void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
+	Form::execute(executor);
+	std::ofstream	ofs(getTarget() + "_shrubbery");
+	std::string tree =
+			"                                                         .\n"
+			"                                              .         ;  \n"
+			"                 .              .              ;%     ;;   \n"
+			"                   ,           ,                :;%  %;   \n"
+			"                    :         ;                   :;%;'     .,   \n"
+			"           ,.        %;     %;            ;        %;'    ,;\n"
+			"             ;       ;%;  %%;        ,     %;    ;%;    ,%'\n"
+			"              %;       %;%;      ,  ;       %;  ;%;   ,%;' \n"
+			"               ;%;      %;        ;%;        % ;%;  ,%;'\n"
+			"                `%;.     ;%;     %;'         `;%%;.%;'\n"
+			"                 `:;%.    ;%%. %@;        %; ;@%;%'\n"
+			"                    `:%;.  :;bd%;          %;@%;'\n"
+			"                      `@%:.  :;%.         ;@@%;'   \n"
+			"                        `@%.  `;@%.      ;@@%;         \n"
+			"                          `@%%. `@%%    ;@@%;        \n"
+			"                            ;@%. :@%%  %@@%;       \n"
+			"                              %@bd%%%bd%%:;     \n"
+			"                                #@%%%%%:;;\n"
+			"                                %@@%%%::;\n"
+			"                                %@@@%(o);  . '         \n"
+			"                                %@@@o%;:(.,'         \n"
+			"                            `.. %@@@o%::;         \n"
+			"                               `)@@@o%::;         \n"
+			"                                %@@(o)::;        \n"
+			"                               .%@@@@%::;         \n"
+			"                               ;%@@@@%::;.          \n"
+			"                              ;%@@@@%%:;;;. \n"
+			"                          ...;%@@@@@%%:;;;;,..   \n";
 
-int ShrubberyCreationForm::getExecGrade() const {
-	return (this->_execGrade);
+	ofs << tree;
+	ofs.close();
 }

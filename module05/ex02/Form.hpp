@@ -34,8 +34,12 @@ public:
 	public:
 		virtual const char * what() const throw();
 	};
+	class NoSign : public std::exception {
+	public:
+		virtual const char * what() const throw();
+	};
 
-	virtual void	execute(Bureaucrat const &executor) = 0;
+	virtual void	execute(Bureaucrat const &executor) const = 0;
 private:
 	const std::string	_name;
 	bool				_signed;

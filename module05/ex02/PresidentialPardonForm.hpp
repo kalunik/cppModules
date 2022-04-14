@@ -9,7 +9,6 @@
 
 class PresidentialPardonForm : public Form {
 public:
-	PresidentialPardonForm();
 	PresidentialPardonForm(std::string target);
 	PresidentialPardonForm(const PresidentialPardonForm &obj);
 	~PresidentialPardonForm();
@@ -17,12 +16,11 @@ public:
 	PresidentialPardonForm &operator=(const PresidentialPardonForm &obj);
 
 	std::string	getTarget() const;
-	int			getSignGrade() const;
-	int			getExecGrade() const;
+	virtual void execute(const Bureaucrat &executor) const;
 private:
-	const std::string	_target;
-	static const int	_signGrade = 25;
-	static const int	_execGrade = 5;
+	PresidentialPardonForm();
+	std::string	_target;
+
 };
 
 

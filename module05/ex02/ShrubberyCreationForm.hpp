@@ -6,6 +6,7 @@
 #define CPPMODULES_SHRUBBERYCREATIONFORM_HPP
 
 #include "Form.hpp"
+#include "fstream"
 
 class ShrubberyCreationForm : public Form {
 public:
@@ -17,12 +18,10 @@ public:
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &obj);
 
 	std::string	getTarget() const;
-	int			getSignGrade() const;
-	int			getExecGrade() const;
+
+	virtual void execute(const Bureaucrat &executor) const;
 private:
-	const std::string	_target;
-	static const int	_signGrade = 145;
-	static const int	_execGrade = 137;
+	std::string	_target;
 };
 
 
