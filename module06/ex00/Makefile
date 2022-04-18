@@ -28,7 +28,14 @@ fclean: 	clean
 re:			fclean all
 
 test:		all
+			./$(NAME) g
+			./$(NAME) IC
 			./$(NAME) 0
+			./$(NAME) -255
+			./$(NAME) -2147483649
+			./$(NAME) 2147483648
+			./$(NAME) 2.4923
+			./$(NAME) 1234567.8243f
 			./$(NAME) nan
 
 .PHONY: all bonus clean fclean re test
