@@ -6,12 +6,6 @@
 #include <iomanip>
 #include <sstream>
 
-#define UNKNOWN -1
-#define CHAR 0
-#define INT 1
-#define FLOAT 2
-#define DOUBLE 3
-
 int main(int ac, char **av) {
 	if (ac != 2) {
 		std::cerr << "It works only with 1 argument." << std::endl;

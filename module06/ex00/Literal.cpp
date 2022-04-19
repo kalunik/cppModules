@@ -6,13 +6,14 @@
 
 Literal::Literal() {}
 
-Literal::Literal(std::string str) : _str(str) {}
+Literal::Literal(std::string str) : _type(UNKNOWN), _str(str) {}
 
 Literal::Literal(const Literal &obj) {
 	*this = obj;
 }
 
 Literal &Literal::operator=(const Literal &obj) {
+	_type = obj._type;
 	_str = obj._str;
 	_c = obj._c;
 	_i = obj._i;
