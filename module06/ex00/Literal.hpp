@@ -12,28 +12,44 @@
 #define DOUBLE 4
 
 #include <iostream>
-#include <limits>
+#include <limits> //numeric_limits
+#include <iomanip>
 
 class Literal {
 public:
-	Literal(std::string str);
+	Literal(char **str);
 	Literal(const Literal &obj);
 	~Literal();
 
 	Literal &operator=(const Literal &obj);
 
-	int		typeSelector(std::string str);
-	void	setDouble(std::string str);
+	int		getType();
 
+	void	setType(int type);
+	void	setDouble(std::string str);
+	int		typeSelector();
+
+	void	setStr(char **str);
+	void	setDigit();
+
+	char	charConversion();
+	int		intConversion();
+	float	floatConversion();
+	double	doubleConversion();
+	void	displayLiterals();
+
+	class NonDisplayable : public std::exception {
+		virtual const char * what() const throw();
+	};
+	class Impossible : public std::exception {
+		virtual const char * what() const throw();
+	};
 private:
 	Literal();
 
 	int			_type;
 	std::string	_str;
-	char		_c;
-	int			_i;
-	float		_f;
-	double		_d;
+	double		_digit;
 };
 
 

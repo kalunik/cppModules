@@ -2,9 +2,10 @@
 // Created by Waif Jonathon on 16.04.2022.
 //
 
-#include "iostream"
+#include <iostream>
 #include <iomanip>
-#include <sstream>
+#include "Literal.hpp"
+
 
 int main(int ac, char **av) {
 	if (ac != 2) {
@@ -12,23 +13,24 @@ int main(int ac, char **av) {
 		return (EXIT_FAILURE);
 	}
 
-	int type = -1;
-	double num;
+	Literal lit(av);
 
-	if (strlen(av[1]) == 1) {
-		if (isprint(av[1][0])) {
-			type = CHAR;
-		} else if (isdigit(av[1][0])) {
-			type = INT;
-		}
-	}
+	lit.displayLiterals();
 
-	num = strtod(av[1], NULL);
+//	float num = std::numeric_limits<float>::signaling_NaN();
+//	printf("%f ______\n", num);
+
+/*
+	float num =  1234567.8243f;
+//	printf("%f ______\n", num);
+
+//	num = strtod(av[1], NULL);
+	(void) av;
 	std::cout << "char   : " << static_cast<char>(num) << std::endl;
 	std::cout << "int    : " << static_cast<int>(num) << std::endl;
-	std::cout << "float  : " << std::setprecision(15)<< static_cast<float>(num)
+	std::cout << "float  : " << std::setprecision(8)<< static_cast<float>(num)
 	<< 	std::endl;
-	std::cout << "double : " << static_cast<double>(num) << std::endl;
-
-
+	std::cout << "float  : " << std::fixed << static_cast<float>(num)
+	<< 	std::endl;
+	std::cout << "double : " << static_cast<double>(num) << std::endl;*/
 }
