@@ -29,9 +29,11 @@ fclean: 	clean
 re:			fclean all
 
 test:		all
+			./$(NAME)
+			./$(NAME) g 2
 			./$(NAME) g
-			./$(NAME) IC
-			./$(NAME) 0
+			./$(NAME) 8
+			./$(NAME) 123.234f
 			./$(NAME) -255
 			./$(NAME) -2147483648
 			./$(NAME) 2147483648
@@ -39,6 +41,7 @@ test:		all
 			./$(NAME) 1234567.8243f
 			./$(NAME) 3.4e-38
 			./$(NAME) 3.4e+39
+			./$(NAME) 3.14159265358979323846e+5
 			./$(NAME) nan
 			./$(NAME) nanf
 			./$(NAME) +inf

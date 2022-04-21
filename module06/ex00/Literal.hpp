@@ -5,15 +5,8 @@
 #ifndef CPPMODULES_LITERAL_HPP
 #define CPPMODULES_LITERAL_HPP
 
-#define UNKNOWN 0
-#define CHAR 1
-#define INT 2
-#define FLOAT 3
-#define DOUBLE 4
-
 #include <iostream>
 #include <limits> //numeric_limits
-#include <iomanip>
 
 class Literal {
 public:
@@ -23,12 +16,6 @@ public:
 
 	Literal &operator=(const Literal &obj);
 
-	int		getType();
-
-	void	setType(int type);
-	void	setDouble(std::string str);
-	int		typeSelector();
-
 	void	setStr(char **str);
 	void	setDigit();
 
@@ -36,8 +23,12 @@ public:
 	int		intConversion();
 	float	floatConversion();
 	double	doubleConversion();
+
 	void	displayLiterals();
 
+	class BadArgs : public std::exception {
+		virtual const char * what() const throw();
+	};
 	class NonDisplayable : public std::exception {
 		virtual const char * what() const throw();
 	};
@@ -47,7 +38,6 @@ public:
 private:
 	Literal();
 
-	int			_type;
 	std::string	_str;
 	double		_digit;
 };
