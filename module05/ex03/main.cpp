@@ -6,13 +6,29 @@
 #include "Intern.hpp"
 
 int main() {
-	Intern		nobodyKnowHim;
-	Bureaucrat	frank("frank", 3);
-	Form		*form;
+	{
+		Intern nobodyKnowHim;
+		Bureaucrat Frank("Frank", 3);
+		Form *form;
 
-	form = nobodyKnowHim.makeForm("shrubbery", "Paul");
-	frank.signForm(*form);
-	frank.executeForm(*form);
+		form = nobodyKnowHim.makeForm("shrubbery", "Paul");
+		if (form) {
+			Frank.signForm(*form);
+			Frank.executeForm(*form);
+		}
+	}
+	std::cout << std::endl;
+	{
+		Intern nobodyKnowHim;
+		Bureaucrat Frank("Frank", 3);
+		Form *form;
+
+		form = nobodyKnowHim.makeForm("appointment", "Paul");
+		if (form) {
+		Frank.signForm(*form);
+		Frank.executeForm(*form);
+		}
+	}
 
 	return (0);
 }

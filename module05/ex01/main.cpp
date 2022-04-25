@@ -11,7 +11,7 @@ int main() {
 			Bureaucrat a("John", 150);
 			Form b("DOC", 150, 2);
 			std::cout << b << std::endl;
-			a.signForm(b);
+			a.signForm(b); //form will be signed(grade equal required one)
 			std::cout << b << std::endl;
 		}
 		catch (std::exception &exception) {
@@ -24,7 +24,7 @@ int main() {
 			Bureaucrat a("John", 2);
 			Form b("DOC", 1, 2);
 			std::cout << b << std::endl;
-			a.signForm(b);
+			a.signForm(b); // FAIL – grade lower than required
 			std::cout << b << std::endl;
 		}
 		catch (std::exception &exception) {
@@ -35,7 +35,7 @@ int main() {
 	{
 		try {
 			Bureaucrat a("John", 2);
-			Form b("DOC", 0, 2);
+			Form b("DOC", 0, 2); //FAIL
 			std::cout << b << std::endl;
 			b.beSigned(a);
 			std::cout << b << std::endl;

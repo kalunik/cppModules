@@ -10,36 +10,8 @@
 
 int main() {
 	{
-//		try {
-			Bureaucrat a("John", 6);
-			PresidentialPardonForm b("George Bush");
-//			std::cout << b << std::endl;
-//			a.signForm(b);
-			std::cout << b << std::endl;
-			a.executeForm(b);
-//		}
-//		catch (std::exception &exception) {
-//			std::cout << exception.what() << std::endl;
-//		}
-	}
-	/*std::cout << std::endl;
-	{
 		try {
-			Bureaucrat a("Deer", 2);
-			RobotomyRequestForm b("George Bush");
-//			std::cout << b << std::endl;
-			a.signForm(b);
-//			std::cout << b << std::endl;
-			b.execute(a);
-		}
-		catch (std::exception &exception) {
-			std::cout << exception.what() << std::endl;
-		}
-	}
-	std::cout << std::endl;
-	{
-		try {
-			Bureaucrat a("Wolf", 2);
+			Bureaucrat a("Wolf", 137);
 			ShrubberyCreationForm b("George");
 //			std::cout << b << std::endl;
 			a.signForm(b);
@@ -50,14 +22,17 @@ int main() {
 			std::cout << exception.what() << std::endl;
 		}
 	}
-	std::cout << std::endl;*/
-/*	{
+
+	std::cout << std::endl;
+	{
 		try {
-			Bureaucrat a("John", 2);
-			Form b("DOC", 1, 2);
-			std::cout << b << std::endl;
+			Bureaucrat a("Deer", 2);
+			RobotomyRequestForm b("George Bush");
+//			std::cout << b << std::endl;
 			a.signForm(b);
-			std::cout << b << std::endl;
+//			std::cout << b << std::endl;
+			b.execute(a);
+//			a.executeForm(b);
 		}
 		catch (std::exception &exception) {
 			std::cout << exception.what() << std::endl;
@@ -65,16 +40,13 @@ int main() {
 	}
 	std::cout << std::endl;
 	{
-		try {
-			Bureaucrat a("John", 2);
-			Form b("DOC", 0, 2);
-			std::cout << b << std::endl;
-			b.beSigned(a);
-			std::cout << b << std::endl;
-		}
-		catch (std::exception &exception) {
-			std::cout << exception.what() << std::endl;
-		}
-	}*/
+		Bureaucrat a("John", 6); //exec reqire grade 5 and higher
+		PresidentialPardonForm b("George Bush");
+//		std::cout << b << std::endl;
+//		a.signForm(b);
+		std::cout << b << std::endl;
+		a.executeForm(b); //FAIL – can't execute unsigned form or low grade
+	}
+	std::cout << std::endl;
 	return (0);
 }
