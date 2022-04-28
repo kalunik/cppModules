@@ -6,8 +6,6 @@
 #define CPPMODULES_ARRAY_HPP
 
 #include <iostream>
-#include <iomanip>
-
 
 /*template<typename T>
 class Vertex {
@@ -40,30 +38,43 @@ template<class T>
 		///try to create arr[0] and delete via destructor
 class Array{
 public:
-	Array<T>() : _arr(NULL), _size(0) {};
-	Array<T>(unsigned int size) : _size(size) {
-		if (size < 0)
-			throw std::runtime_error("Index out of bounds");
-		_arr = new T[_size];
+	Array<T>() : _arr(NULL), _size(0) {
+		std::cout << "Zero constructor" << std::endl;
 	};
-	Array<T>(const Array<T> &obj) {*this = obj;};
-	~Array<T>() {delete []_arr;};
+	Array<T>(unsigned int size) {
+		std::cout << "Size constructor" << std::endl;
+		if (size == 0)
+			_arr = NULL;
+		else
+			this->_arr = new T(_size);
+		_size = size;
+	};
+	Array<T>(const Array<T> &obj) {
+		std::cout << "Copy constructor called" << std::endl;
+		*this = obj;
+	};
+	~Array<T>() {
+		if (this->_arr)
+			delete []this->_arr;
+	};
 
 	Array<T> &operator=(const Array<T> &obj) {
+		std::cout << "Assignation overload called" << std::endl;
 		if (this == &obj)
 			return (*this);
-		if (this->_size > 0)
+		if (this->_arr)
 			delete [] this->_arr;
-		this->_size = obj._size;
+		this->_size = obj.size();
 		this->_arr = new T(this->_size);
 		for (unsigned int i = 0; i < this->_size; i++) {
-			this->_arr[i] = obj._arr[i];
+			this->_arr[i] = obj[i];
 		}
 		return *this;
 	};
 
 	T &operator[](const unsigned int index) const {
-		///overflow
+		if (index < 0 || index >= _size)
+			throw std::range_error("Index out of bounds");
 		return this->_arr[index];
 	}
 
@@ -72,7 +83,9 @@ public:
 	};
 private:
 	T				*_arr;
-	unsigned int	_size
+	unsigned int	_size;
 };
+
+
 
 #endif //CPPMODULES_ARRAY_HPP

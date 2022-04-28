@@ -14,7 +14,7 @@ $(NAME):	$(OBJS)
 			@$(CC) -o $(NAME) $(OBJS)
 			@echo "$(NAME) is ready to use ✅ "
 
-%.o:		%.cpp Makefile
+%.o:		%.cpp Makefile Array.hpp
 			@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
