@@ -8,7 +8,8 @@ int main(int, char**)
 {
 
 	try {
-		Array<float> v(0);
+		const Array<float> v(4);
+//		Array<float> v(0);
 		v[0] = 9.42f;
 		for (int i = 0; i < 2; i++) {
 			std::cout << i << " – " << v[i] << std::endl;
