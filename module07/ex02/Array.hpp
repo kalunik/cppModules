@@ -46,7 +46,7 @@ public:
 		if (size == 0)
 			_arr = NULL;
 		else
-			this->_arr = new T(_size);
+			this->_arr = new T[_size]();
 		_size = size;
 	};
 	Array<T>(const Array<T> &obj) {
@@ -55,7 +55,7 @@ public:
 	};
 	~Array<T>() {
 		if (this->_arr)
-			delete []this->_arr;
+			delete [](this->_arr);
 	};
 
 	Array<T> &operator=(const Array<T> &obj) {
@@ -63,9 +63,9 @@ public:
 		if (this == &obj)
 			return (*this);
 		if (this->_arr)
-			delete [] this->_arr;
+			delete [](this->_arr);
 		this->_size = obj.size();
-		this->_arr = new T(this->_size);
+		this->_arr = new T[_size]();
 		for (unsigned int i = 0; i < this->_size; i++) {
 			this->_arr[i] = obj[i];
 		}
